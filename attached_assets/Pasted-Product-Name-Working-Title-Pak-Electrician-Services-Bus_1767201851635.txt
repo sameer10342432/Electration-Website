@@ -1,0 +1,600 @@
+Product Name (Working Title): Pak Electrician Services ⚡
+Business Type: Electrician services (Residential + Commercial) across Pakistan
+Goal: Build a high-converting service website with Pakistan-wide city coverage, where every service page includes a contact form, and all form submissions are stored and managed inside an admin panel.
+
+2) Objectives
+
+Primary Objectives
+
+Generate leads (calls + WhatsApp + form submissions) from all major cities in Pakistan.
+
+Rank on Google through service + city landing pages (Local SEO).
+
+Allow admin to view and manage all customer inquiries from the admin panel.
+
+Success Metrics (KPIs)
+
+Daily/weekly inquiries received (Form leads)
+
+Call clicks & WhatsApp clicks
+
+Conversion rate (visits → inquiries)
+
+Page ranking growth for “service + city” keywords
+
+Response time (admin action time)
+
+3) Target Audience
+
+Users
+
+Homeowners needing repairs/installations
+
+Offices/shops requiring electrical work
+
+Construction/renovation clients
+
+Admin Users
+
+Business owner
+
+Call center / sales person
+
+Manager (optional role)
+
+4) Scope
+In-Scope
+
+Public website (Home + Services + Service Details + City Pages + About + Contact)
+
+Service pages for each city (SEO landing pages)
+
+Contact form on every service page (and optionally sticky CTA)
+
+Admin panel:
+
+View inquiries
+
+Filter/search
+
+Mark status (New, Contacted, Completed, Spam)
+
+Export inquiries CSV
+
+Manage services + cities (optional but recommended)
+
+Responsive mobile-first UI
+
+SEO structure + schema + speed optimization
+
+Out-of-Scope (Phase 2)
+
+Online payments
+
+Customer login portal
+
+Technician scheduling system
+
+Live chat bot (optional later)
+
+5) User Experience Requirements
+5.1 Public Website Pages
+
+A) Home Page ⚡
+
+Hero section: “Professional Electrician Services in Pakistan”
+
+City selector dropdown (e.g., Lahore, Karachi, Islamabad…)
+
+Top services grid with icons/emojis
+
+Trust elements:
+
+“Certified technicians”
+
+“Same-day service”
+
+“Affordable pricing”
+
+Reviews/testimonials section
+
+CTA buttons:
+
+📞 Call Now
+
+💬 WhatsApp
+
+📝 Get Quote (form popup)
+
+B) Services Listing Page 🔧
+
+All services in grid/list format
+
+Each card includes:
+
+Service icon/emoji
+
+Short description
+
+“View Service” button
+
+C) Service Detail Page (Generic)
+
+Service explanation
+
+Pricing starting range (optional)
+
+FAQs
+
+Safety/quality notes
+
+Coverage: “Available in all major cities”
+
+CTA: form + call/WhatsApp
+
+D) City Service Landing Pages (SEO Pages)
+URL Pattern Options (Recommended):
+
+/pk/{city}/{service}/
+Example:
+
+/pk/lahore/electrical-wiring/
+
+/pk/karachi/ac-installation-wiring/
+
+Each city-service page contains:
+
+H1: “Electrical Wiring Service in Lahore ⚡”
+
+Localized content (unique)
+
+“Why choose us in {city}”
+
+Quick contact form
+
+Service areas inside city (optional)
+
+FAQs for city
+
+Call + WhatsApp CTAs
+
+E) Contact Page 📍
+
+Contact form
+
+Phone, WhatsApp, email
+
+Business hours
+
+Service coverage list
+
+F) About Page
+
+Company story, experience, team
+
+Safety & quality assurance
+
+6) Contact Form Requirements (Core Feature)
+
+Form Fields
+
+Full Name (required)
+
+Phone Number (required)
+
+City (dropdown required)
+
+Service Needed (dropdown required)
+
+Address / Area (optional but recommended)
+
+Message / Problem Description (required)
+
+Preferred Contact Method (Call / WhatsApp)
+
+Optional: Upload photo of issue (wire, board, switch) 📷 (recommended)
+
+Form Behavior
+
+Form on:
+
+Every service page
+
+Every city-service landing page
+
+Contact page
+
+After submit:
+
+Show “Thank you” message
+
+Optional: redirect to WhatsApp with pre-filled message
+
+Spam protection:
+
+reCAPTCHA or hidden honeypot field
+
+Store all inquiries in database and admin panel
+
+Notification
+
+Email notification to admin on each new inquiry (optional)
+
+WhatsApp notification via API (Phase 2)
+
+7) Admin Panel Requirements
+7.1 Admin Roles
+
+Admin: Full access
+
+Staff: View + update inquiry status only (optional)
+
+7.2 Admin Login 🔐
+
+Secure login
+
+Forgot password
+
+Session timeout
+
+7.3 Inquiry Management (Main Module)
+
+Inquiry List View
+
+Columns:
+
+Inquiry ID
+
+Name
+
+Phone
+
+City
+
+Service
+
+Status (New/Contacted/Completed/Spam)
+
+Created date/time
+
+Features:
+
+Search by phone/name
+
+Filters by city/service/status/date
+
+Sort by newest
+
+Inquiry Details Page
+
+Full form submission details
+
+Uploaded image preview (if enabled)
+
+Admin notes section
+
+Change status dropdown
+
+Quick action buttons:
+
+📞 Call (click-to-call)
+
+💬 WhatsApp (open wa.me link)
+
+Export
+
+Export CSV by date range / city / service
+
+7.4 Admin Content Management (Recommended)
+
+Manage Services:
+
+Name, slug, icon/emoji, description
+
+Manage Cities:
+
+City name, slug
+
+Manage SEO:
+
+Meta title, meta description templates
+
+Page indexing toggle (noindex option)
+
+8) Design & Branding Requirements (Electrician Theme)
+
+Design Style
+
+Clean, professional, trustworthy
+
+Colors suggestion: Electric blue + dark gray + white (final choice optional)
+
+Icons/Emojis allowed (electrician-related only)
+
+Electrician Emoji/Icon Set Examples
+
+⚡ Electric / Power
+
+🔌 Plug / socket
+
+💡 Light / bulbs
+
+🧰 Tools
+
+🪛 Screwdriver
+
+🔧 Wrench
+
+🧯 Safety (if needed)
+
+📞 Call
+
+💬 WhatsApp
+
+📍 Location
+
+📷 Photo upload
+
+Images
+
+Real electrician work photos or high-quality stock
+
+Avoid random unrelated icons
+
+9) SEO Requirements (Very Important)
+
+Landing Page Strategy
+
+Create city-service pages for:
+
+All major cities first (Phase 1)
+
+Then expand to more cities (Phase 2)
+
+SEO URL Structure
+
+/pk/{city}/{service}/
+
+Meta Templates (Auto)
+
+Meta Title Template:
+
+{Service} in {City} | Electrician Services Pakistan ⚡
+
+Meta Description Template:
+
+Need {service} in {city}? Call or WhatsApp our professional electricians for fast, safe, and affordable service. Book now!
+
+On-Page SEO
+
+One H1 per page
+
+FAQ section with FAQ schema
+
+LocalBusiness schema site-wide
+
+Fast loading, image compression, lazy loading
+
+Sitemap
+
+Auto-generate XML sitemap including all city-service pages
+
+10) Functional Requirements
+
+Website
+
+Responsive design (mobile-first)
+
+Click-to-call and WhatsApp button visible on mobile
+
+City selection changes content/URLs
+
+Fast load: Core Web Vitals friendly
+
+Admin
+
+CRUD (optional): services, cities
+
+Inquiry status updates
+
+Notes + export
+
+11) Non-Functional Requirements
+
+Performance
+
+Page load under 2.5 seconds on mobile (target)
+
+Optimized images (WebP recommended)
+
+Security
+
+HTTPS/SSL required
+
+Input validation & sanitization
+
+Rate limit form submissions
+
+Secure password hashing
+
+Role-based access
+
+Reliability
+
+Daily database backup (recommended)
+
+Logs for errors and form failures
+
+12) Tech Stack Recommendations
+
+Option A (Fast + Modern)
+
+Frontend: Next.js (SEO-friendly)
+
+Backend: Node.js / Express or Next.js API routes
+
+Database: PostgreSQL or MySQL
+
+Admin Panel: Custom dashboard (React) or built-in admin pages
+
+Option B (Most Common + Budget Friendly)
+
+Laravel (PHP) full-stack
+
+MySQL database
+
+Admin panel using Laravel Nova / Filament / custom
+
+Hosting
+
+VPS hosting + Nginx + SSL
+
+CDN optional (Cloudflare recommended)
+
+13) Database Schema (Proposed)
+
+Table: inquiries
+
+id (PK)
+
+full_name
+
+phone
+
+city
+
+service
+
+area_address (nullable)
+
+message
+
+preferred_contact_method
+
+image_url (nullable)
+
+status (New/Contacted/Completed/Spam)
+
+admin_notes (nullable)
+
+created_at
+
+updated_at
+
+Table: services
+
+id
+
+name
+
+slug
+
+icon (emoji or icon name)
+
+short_description
+
+created_at
+
+Table: cities
+
+id
+
+name
+
+slug
+
+created_at
+
+Table: admin_users
+
+id
+
+name
+
+email
+
+password_hash
+
+role (admin/staff)
+
+created_at
+
+14) Key Service List (Initial)
+
+Start with 10–20 services (Phase 1), example:
+
+⚡ Electrical Wiring & Rewiring
+
+💡 Light Installation & Repair
+
+🔌 Switch/Socket Installation
+
+🧰 Circuit Breaker Repair
+
+🪛 DB Board / Distribution Board Fix
+
+🔧 Fault Finding & Troubleshooting
+
+🧯 Short Circuit Repair
+
+🔋 UPS/Inverter Wiring
+
+🌬️ AC Wiring / Stabilizer Setup
+
+🏠 Home Electrical Inspection
+
+15) City List (Phase 1 Suggested)
+
+Karachi
+
+Lahore
+
+Islamabad
+
+Rawalpindi
+
+Faisalabad
+
+Multan
+
+Peshawar
+
+Quetta
+
+Gujranwala
+
+Sialkot
+
+(Phase 2: expand to all cities)
+
+16) User Stories
+
+Customer
+
+As a customer, I want to choose my city and service so I can contact the right electrician.
+
+As a customer, I want to submit a form and get a quick response.
+
+As a customer, I want to call or WhatsApp instantly.
+
+Admin
+
+As an admin, I want to see all inquiries in one place.
+
+As an admin, I want to filter inquiries by city/service to manage leads faster.
+
+As an admin, I want to update inquiry status and add notes.
+
+17) Acceptance Criteria
+
+Every service page contains a working contact form.
+
+Form submissions appear instantly in admin panel.
+
+Admin can filter/search inquiries.
+
+City-service URLs work correctly and are indexable.
+
+Mobile view shows Call/WhatsApp CTA clearly.
+
+SSL enabled; forms are protected from spam.
