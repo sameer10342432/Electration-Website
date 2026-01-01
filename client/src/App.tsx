@@ -15,6 +15,8 @@ import About from "@/pages/About";
 import AdminDashboard from "@/pages/AdminDashboard";
 import Login from "@/pages/Login";
 
+import { ScrollToTop } from "@/components/ScrollToTop";
+
 function Router() {
   return (
     <Switch>
@@ -35,6 +37,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
+        <ScrollToTop />
         <Router />
         <Toaster />
       </TooltipProvider>
