@@ -45,9 +45,23 @@ export function useUpdateInquiryStatus() {
         body: JSON.stringify({ status, adminNotes }),
         credentials: "include",
       });
-      
+
       if (!res.ok) throw new Error("Failed to update status");
       return api.inquiries.updateStatus.responses[200].parse(await res.json());
+    },
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: [api.inquiries.list.path] }),
+  });
+}
+
+export function useDeleteInquiry() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: async (id: number) => {
+      const res = await fetch(`/api/inquiries/${id}`, {
+        method: "DELETE",
+        credentials: "include",
+      });
+      if (!res.ok) throw new Error("Failed to delete inquiry");
     },
     onSuccess: () => queryClient.invalidateQueries({ queryKey: [api.inquiries.list.path] }),
   });

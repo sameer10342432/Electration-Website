@@ -3,21 +3,14 @@ import type { Server } from "http";
 import { storage } from "./storage";
 import { api } from "@shared/routes";
 import { z } from "zod";
-import { setupAuth } from "./replit_integrations/auth"; // Fixed path
+import { setupAuth } from "./auth";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  // Setup Auth (if blueprint added it)
-  // We'll wrap it in try-catch or check existence in case blueprint failed,
-  // but assuming it works, we call it.
-  // Actually, standard Replit Auth blueprint usage:
-  try {
-    setupAuth(app);
-  } catch (e) {
-    console.log("Auth setup skipped or failed (might be missing auth.ts):", e);
-  }
+  // Setup Auth
+  setupAuth(app);
 
   // === Inquiries ===
   app.post(api.inquiries.create.path, async (req, res) => {
@@ -57,6 +50,12 @@ export async function registerRoutes(
     res.json(updated);
   });
 
+  app.delete("/api/inquiries/:id", async (req, res) => {
+    if (!req.isAuthenticated()) return res.sendStatus(401);
+    await storage.deleteInquiry(Number(req.params.id));
+    res.sendStatus(204);
+  });
+
   // === Services ===
   app.get(api.services.list.path, async (req, res) => {
     const services = await storage.getServices();
@@ -85,14 +84,14 @@ async function seedDatabase() {
   const services = await storage.getServices();
   if (services.length === 0) {
     const initialServices = [
-      { name: "Electrical Wiring", slug: "electrical-wiring", icon: "Zap", shortDescription: "Complete home and office wiring services." },
-      { name: "Light Installation", slug: "light-installation", icon: "Lightbulb", shortDescription: "Indoor and outdoor lighting installation." },
-      { name: "Switch & Socket", slug: "switch-socket", icon: "Plug", shortDescription: "Repair and installation of switches and sockets." },
-      { name: "Circuit Breaker", slug: "circuit-breaker", icon: "Activity", shortDescription: "DB board and circuit breaker repairs." },
-      { name: "UPS & Inverter", slug: "ups-inverter", icon: "Battery", shortDescription: "UPS and inverter wiring and installation." },
-      { name: "AC Wiring", slug: "ac-wiring", icon: "Wind", shortDescription: "AC power point wiring and stabilization." },
-      { name: "Fan Installation", slug: "fan-installation", icon: "Fan", shortDescription: "Ceiling and wall fan installation." },
-      { name: "Generator Setup", slug: "generator-setup", icon: "Power", shortDescription: "Generator changeover switch and wiring." },
+      { name: "Electrical Wiring", slug: "electrical-wiring", icon: "Zap", imageUrl: "/images/electrical-wiring.png", shortDescription: "Complete home and office wiring services." },
+      { name: "Light Installation", slug: "light-installation", icon: "Lightbulb", imageUrl: "/images/light-installation.png", shortDescription: "Indoor and outdoor lighting installation." },
+      { name: "Switch & Socket", slug: "switch-socket", icon: "Plug", imageUrl: "/images/switch-socket.png", shortDescription: "Repair and installation of switches and sockets." },
+      { name: "Circuit Breaker", slug: "circuit-breaker", icon: "Activity", imageUrl: "/images/circuit-breaker.png", shortDescription: "DB board and circuit breaker repairs." },
+      { name: "UPS & Inverter", slug: "ups-inverter", icon: "Battery", imageUrl: "/images/ups-inverter.png", shortDescription: "UPS and inverter wiring and installation." },
+      { name: "AC Wiring", slug: "ac-wiring", icon: "Wind", imageUrl: "/images/ac-wiring.png", shortDescription: "AC power point wiring and stabilization." },
+      { name: "Fan Installation", slug: "fan-installation", icon: "Fan", imageUrl: "/images/fan-installation.png", shortDescription: "Ceiling and wall fan installation." },
+      { name: "Generator Setup", slug: "generator-setup", icon: "Power", imageUrl: "/images/generator-setup.png", shortDescription: "Generator changeover switch and wiring." },
     ];
     for (const s of initialServices) {
       await storage.createService(s);

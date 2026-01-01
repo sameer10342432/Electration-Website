@@ -34,8 +34,16 @@ export default function ServiceDetail() {
 
   return (
     <Layout>
-      <div className="bg-slate-900 py-20">
-        <div className="container mx-auto px-4">
+      <div className="relative py-24 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src={service.imageUrl}
+            alt={service.name}
+            className="w-full h-full object-cover opacity-30"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/30"></div>
+        </div>
+        <div className="relative z-10 container mx-auto px-4">
           <h1 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
             {service.name}
           </h1>
@@ -51,10 +59,10 @@ export default function ServiceDetail() {
           <div className="lg:col-span-2 space-y-8">
             <div className="prose prose-lg max-w-none text-muted-foreground">
               <p>
-                Our {service.name} service is designed to provide you with safe, efficient, and long-lasting solutions. 
+                Our {service.name} service is designed to provide you with safe, efficient, and long-lasting solutions.
                 Whether you're facing an emergency or planning an upgrade, our certified technicians are ready to help.
               </p>
-              
+
               <h3 className="text-foreground font-display font-bold text-2xl mt-8 mb-4">What We Offer</h3>
               <ul className="grid sm:grid-cols-2 gap-4 not-prose">
                 {[
@@ -74,11 +82,11 @@ export default function ServiceDetail() {
 
               <h3 className="text-foreground font-display font-bold text-2xl mt-12 mb-4">Common Issues We Fix</h3>
               <p>
-                Don't ignore signs of electrical problems. Flickering lights, tripping breakers, or burning smells 
+                Don't ignore signs of electrical problems. Flickering lights, tripping breakers, or burning smells
                 can indicate serious hazards. Our team specializes in diagnosing and resolving these issues promptly.
               </p>
             </div>
-            
+
             <div className="bg-blue-50 border border-blue-100 rounded-2xl p-8 flex flex-col md:flex-row items-center justify-between gap-6">
               <div>
                 <h4 className="text-xl font-bold text-blue-900 mb-2">Need Urgent Help?</h4>

@@ -23,8 +23,16 @@ export default function CityLanding() {
 
   return (
     <Layout>
-      <div className="bg-slate-900 py-20">
-        <div className="container mx-auto px-4 text-center">
+      <div className="relative py-24 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=2144"
+            alt="City Skyline"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/80 to-slate-900/30"></div>
+        </div>
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white mb-6 backdrop-blur-sm border border-white/20">
             <MapPin className="h-4 w-4 text-primary" />
             <span className="capitalize">{cityName}</span>
@@ -44,8 +52,8 @@ export default function CityLanding() {
             <div>
               <h2 className="text-3xl font-display font-bold mb-4">Why choose us in {cityName}?</h2>
               <p className="text-muted-foreground text-lg leading-relaxed">
-                Finding a reliable electrician in {cityName} can be difficult. We make it easy. 
-                Our local team is familiar with the electrical infrastructure of {cityName} and provides 
+                Finding a reliable electrician in {cityName} can be difficult. We make it easy.
+                Our local team is familiar with the electrical infrastructure of {cityName} and provides
                 tailored solutions for homes and businesses.
               </p>
             </div>
@@ -65,7 +73,7 @@ export default function CityLanding() {
                 </div>
               ))}
             </div>
-            
+
             <div className="bg-slate-50 p-6 rounded-2xl border border-border">
               <h3 className="font-bold text-xl mb-2">Service Areas in {cityName}</h3>
               <p className="text-sm text-muted-foreground">
@@ -76,9 +84,9 @@ export default function CityLanding() {
 
           <div className="relative">
             <div className="absolute inset-0 bg-primary/5 transform rotate-3 rounded-3xl"></div>
-            <ContactForm 
-              defaultCity={city?.name} 
-              defaultService={service?.name} 
+            <ContactForm
+              defaultCity={city?.name}
+              defaultService={service?.name}
             />
           </div>
         </div>

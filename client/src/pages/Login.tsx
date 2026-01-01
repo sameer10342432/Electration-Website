@@ -14,19 +14,35 @@ export default function Login() {
           <div className="inline-flex bg-primary/10 p-4 rounded-full mb-4">
             <Zap className="h-8 w-8 text-primary fill-current" />
           </div>
-          
-          <div>
-            <h1 className="text-2xl font-bold text-foreground font-display">Admin Access</h1>
-            <p className="text-muted-foreground mt-2">Sign in to manage inquiries and settings.</p>
-          </div>
 
-          <Button onClick={handleLogin} size="lg" className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20">
-            Login with Replit
-          </Button>
-
-          <p className="text-xs text-muted-foreground">
-            Only authorized personnel can access this area.
-          </p>
+          <form onSubmit={(e) => {
+            e.preventDefault();
+            const formData = new FormData(e.currentTarget);
+            const data = Object.fromEntries(formData);
+            fetch("/api/login", {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(data),
+            }).then(async (res) => {
+              if (res.ok) {
+                window.location.href = "/admin";
+              } else {
+                alert("Invalid credentials");
+              }
+            });
+          }} className="space-y-4 text-left">
+            <div>
+              <label className="block text-sm font-medium mb-1">Username</label>
+              <input name="username" className="w-full p-2 border rounded-md" placeholder="admin" />
+            </div>
+            <div>
+              <label className="block text-sm font-medium mb-1">Password</label>
+              <input name="password" type="password" className="w-full p-2 border rounded-md" placeholder="admin123" />
+            </div>
+            <Button type="submit" size="lg" className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20">
+              Login
+            </Button>
+          </form>
         </div>
       </div>
     </Layout>

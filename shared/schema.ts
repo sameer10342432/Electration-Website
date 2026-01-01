@@ -26,6 +26,7 @@ export const services = pgTable("services", {
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
   icon: text("icon").notNull(), // emoji or icon name
+  imageUrl: text("image_url").notNull(),
   shortDescription: text("short_description").notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
@@ -38,12 +39,12 @@ export const cities = pgTable("cities", {
 });
 
 // === BASE SCHEMAS ===
-export const insertInquirySchema = createInsertSchema(inquiries).omit({ 
-  id: true, 
-  createdAt: true, 
-  updatedAt: true, 
-  status: true, 
-  adminNotes: true 
+export const insertInquirySchema = createInsertSchema(inquiries).omit({
+  id: true,
+  createdAt: true,
+  updatedAt: true,
+  status: true,
+  adminNotes: true
 });
 export const insertServiceSchema = createInsertSchema(services).omit({ id: true, createdAt: true });
 export const insertCitySchema = createInsertSchema(cities).omit({ id: true, createdAt: true });

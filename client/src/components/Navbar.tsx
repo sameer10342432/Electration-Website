@@ -44,9 +44,8 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  location === link.href ? "text-primary font-bold" : "text-muted-foreground"
-                }`}
+                className={`text-sm font-medium transition-colors hover:text-primary ${location === link.href ? "text-primary font-bold" : "text-muted-foreground"
+                  }`}
               >
                 {link.label}
               </Link>
@@ -54,11 +53,12 @@ export function Navbar() {
           </div>
 
           {/* Desktop CTA */}
+          {/* Desktop CTA */}
           <div className="hidden md:flex items-center gap-4">
             <div className="flex flex-col items-end text-right mr-2 hidden lg:flex">
               <span className="text-xs text-muted-foreground">Emergency? Call now</span>
-              <a href="tel:+923001234567" className="text-sm font-bold text-foreground hover:text-primary transition-colors">
-                +92 300 123 4567
+              <a href="tel:03054019976" className="text-sm font-bold text-foreground hover:text-primary transition-colors">
+                03054019976
               </a>
             </div>
             <Button className="rounded-full shadow-lg shadow-primary/20 hover:shadow-primary/30 font-bold px-6">
@@ -81,9 +81,8 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setIsOpen(false)}
-                      className={`text-lg font-medium ${
-                        location === link.href ? "text-primary" : "text-foreground"
-                      }`}
+                      className={`text-lg font-medium ${location === link.href ? "text-primary" : "text-foreground"
+                        }`}
                     >
                       {link.label}
                     </Link>
@@ -92,7 +91,7 @@ export function Navbar() {
                     <Button className="w-full mb-4" size="lg">Book Service</Button>
                     <div className="flex items-center gap-3 text-muted-foreground">
                       <Phone className="h-4 w-4" />
-                      <span>+92 300 123 4567</span>
+                      <span>03054019976</span>
                     </div>
                   </div>
                 </div>

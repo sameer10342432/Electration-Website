@@ -32,10 +32,9 @@ export default function Home() {
       <section className="relative pt-20 pb-32 overflow-hidden bg-slate-900">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 z-0 opacity-20">
-          {/* unsplash: electrician working on panel with blue tint */}
-          <img 
-            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?q=80&w=2069&auto=format&fit=crop" 
-            alt="Background" 
+          <img
+            src="/images/hero-bg.png"
+            alt="Background"
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-900"></div>
@@ -43,9 +42,9 @@ export default function Home() {
 
         <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            
+
             {/* Text Content */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
@@ -58,11 +57,11 @@ export default function Home() {
                 </span>
                 Available 24/7 in Major Cities
               </div>
-              
+
               <h1 className="text-5xl md:text-6xl font-display font-bold leading-tight">
                 Professional <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-blue-400">Electrician</span> Services
               </h1>
-              
+
               <p className="text-lg text-slate-300 max-w-xl leading-relaxed">
                 Expert electrical repairs, installations, and maintenance for your home and office. Licensed, insured, and trusted by thousands.
               </p>
@@ -80,9 +79,11 @@ export default function Home() {
                     </SelectContent>
                   </Select>
                 </div>
-                <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-xl shadow-lg shadow-primary/25">
-                  <PhoneCall className="mr-2 h-5 w-5" /> Call Now
-                </Button>
+                <a href="tel:03054019976">
+                  <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-xl shadow-lg shadow-primary/25 w-full sm:w-auto">
+                    <PhoneCall className="mr-2 h-5 w-5" /> Call Now
+                  </Button>
+                </a>
               </div>
 
               <div className="flex items-center gap-6 pt-6 text-sm text-slate-400">
@@ -147,7 +148,7 @@ export default function Home() {
                 <div key={i} className="h-64 bg-slate-200 rounded-2xl animate-pulse" />
               ))
             ) : (
-              services?.slice(0, 6).map((service) => (
+              services?.map((service) => (
                 <ServiceCard key={service.id} service={service} />
               ))
             )}
@@ -170,9 +171,9 @@ export default function Home() {
             <div className="relative">
               <div className="absolute -inset-4 bg-primary/10 rounded-3xl transform rotate-3"></div>
               {/* unsplash: electrician checking fuse box */}
-              <img 
-                src="https://images.unsplash.com/photo-1556910103-1c02745a30bf?q=80&w=2070&auto=format&fit=crop" 
-                alt="Electrician at work" 
+              <img
+                src="/images/services-bg.png"
+                alt="Electrician at work"
                 className="relative rounded-2xl shadow-2xl w-full"
               />
               <div className="absolute -bottom-6 -right-6 bg-white p-6 rounded-xl shadow-xl border border-border">
@@ -228,12 +229,16 @@ export default function Home() {
             Don't let electrical problems disrupt your day. Contact our experts for fast, reliable service.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold rounded-xl text-primary">
-              Book Appointment
-            </Button>
-            <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-xl bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm">
-              <PhoneCall className="mr-2 h-5 w-5" /> +92 300 123 4567
-            </Button>
+            <Link href="/contact">
+              <Button size="lg" variant="secondary" className="h-14 px-8 text-lg font-bold rounded-xl text-primary w-full sm:w-auto">
+                Book Appointment
+              </Button>
+            </Link>
+            <a href="tel:03054019976">
+              <Button size="lg" className="h-14 px-8 text-lg font-bold rounded-xl bg-white/20 hover:bg-white/30 text-white backdrop-blur-sm w-full sm:w-auto">
+                <PhoneCall className="mr-2 h-5 w-5" /> 03054019976
+              </Button>
+            </a>
           </div>
         </div>
       </section>

@@ -7,8 +7,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Inquiry } from "@shared/schema";
 import { format } from "date-fns";
 import { useState } from "react";
-import { useUpdateInquiryStatus } from "@/hooks/use-inquiries";
-import { Loader2, Eye } from "lucide-react";
+import { useUpdateInquiryStatus, useDeleteInquiry } from "@/hooks/use-inquiries";
+import { Loader2, Eye, Trash2 } from "lucide-react";
 
 interface AdminTableProps {
   inquiries: Inquiry[];
@@ -53,6 +53,7 @@ export function AdminTable({ inquiries }: AdminTableProps) {
 
 function InquiryRow({ inquiry }: { inquiry: Inquiry }) {
   const { mutate, isPending } = useUpdateInquiryStatus();
+  const { mutate: deleteInquiry, isPending: isDeleting } = useDeleteInquiry();
   const [notes, setNotes] = useState(inquiry.adminNotes || "");
 
   const handleStatusChange = (status: string) => {
@@ -61,6 +62,12 @@ function InquiryRow({ inquiry }: { inquiry: Inquiry }) {
 
   const handleSaveNotes = () => {
     mutate({ id: inquiry.id, status: inquiry.status, adminNotes: notes });
+  };
+
+  const handleDelete = () => {
+    if (confirm("Are you sure you want to delete this inquiry? This action cannot be undone.")) {
+      deleteInquiry(inquiry.id);
+    }
   };
 
   return (
@@ -97,56 +104,68 @@ function InquiryRow({ inquiry }: { inquiry: Inquiry }) {
         </Select>
       </TableCell>
       <TableCell className="text-right">
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button variant="ghost" size="sm">
-              <Eye className="h-4 w-4 mr-1" /> View
-            </Button>
-          </DialogTrigger>
-          <DialogContent className="sm:max-w-md">
-            <DialogHeader>
-              <DialogTitle>Inquiry Details #{inquiry.id}</DialogTitle>
-            </DialogHeader>
-            <div className="grid gap-4 py-4">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <h4 className="text-sm font-medium text-muted-foreground">Customer</h4>
-                  <p className="font-semibold">{inquiry.fullName}</p>
-                  <p className="text-sm">{inquiry.phone}</p>
+        <div className="flex justify-end gap-2">
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button variant="ghost" size="icon" className="h-8 w-8 hover:text-blue-600">
+                <Eye className="h-4 w-4" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent className="sm:max-w-md">
+              <DialogHeader>
+                <DialogTitle>Inquiry Details #{inquiry.id}</DialogTitle>
+              </DialogHeader>
+              <div className="grid gap-4 py-4">
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <h4 className="text-sm font-medium text-muted-foreground">Customer</h4>
+                    <p className="font-semibold">{inquiry.fullName}</p>
+                    <p className="text-sm">{inquiry.phone}</p>
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-medium text-muted-foreground">Location</h4>
+                    <p className="font-semibold">{inquiry.city}</p>
+                    <p className="text-sm">{inquiry.areaAddress || "No address provided"}</p>
+                  </div>
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-muted-foreground">Location</h4>
-                  <p className="font-semibold">{inquiry.city}</p>
-                  <p className="text-sm">{inquiry.areaAddress || "No address provided"}</p>
+                  <h4 className="text-sm font-medium text-muted-foreground">Service Request</h4>
+                  <p className="font-semibold text-primary">{inquiry.service}</p>
+                  <p className="text-sm mt-1 bg-muted p-3 rounded-md">{inquiry.message}</p>
+                </div>
+
+                <div className="space-y-2">
+                  <h4 className="text-sm font-medium text-muted-foreground">Admin Notes</h4>
+                  <Textarea
+                    value={notes}
+                    onChange={(e) => setNotes(e.target.value)}
+                    placeholder="Add internal notes here..."
+                    className="resize-none"
+                  />
+                  <Button
+                    onClick={handleSaveNotes}
+                    disabled={isPending}
+                    size="sm"
+                    className="w-full"
+                  >
+                    {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
+                    Save Notes
+                  </Button>
                 </div>
               </div>
-              <div>
-                <h4 className="text-sm font-medium text-muted-foreground">Service Request</h4>
-                <p className="font-semibold text-primary">{inquiry.service}</p>
-                <p className="text-sm mt-1 bg-muted p-3 rounded-md">{inquiry.message}</p>
-              </div>
-              
-              <div className="space-y-2">
-                <h4 className="text-sm font-medium text-muted-foreground">Admin Notes</h4>
-                <Textarea 
-                  value={notes} 
-                  onChange={(e) => setNotes(e.target.value)} 
-                  placeholder="Add internal notes here..."
-                  className="resize-none"
-                />
-                <Button 
-                  onClick={handleSaveNotes} 
-                  disabled={isPending}
-                  size="sm"
-                  className="w-full"
-                >
-                  {isPending && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
-                  Save Notes
-                </Button>
-              </div>
-            </div>
-          </DialogContent>
-        </Dialog>
+            </DialogContent>
+          </Dialog>
+
+          <Button
+            variant="ghost"
+            size="icon"
+            className="h-8 w-8 hover:text-red-600 hover:bg-red-50"
+            onClick={handleDelete}
+            disabled={isDeleting}
+          >
+            {isDeleting ? <Loader2 className="h-4 w-4 animate-spin" /> : <Trash2 className="h-4 w-4" />}
+          </Button>
+        </div>
       </TableCell>
     </TableRow>
   );

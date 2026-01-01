@@ -4,8 +4,16 @@ import { ShieldCheck, Users, Trophy, Target } from "lucide-react";
 export default function About() {
   return (
     <Layout>
-      <div className="bg-slate-900 py-20">
-        <div className="container mx-auto px-4 text-center text-white">
+      <div className="relative py-24 bg-slate-900 overflow-hidden">
+        <div className="absolute inset-0 z-0">
+          <img
+            src="/images/about-bg.png"
+            alt="Our Team"
+            className="w-full h-full object-cover opacity-20"
+          />
+          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/50 to-slate-900"></div>
+        </div>
+        <div className="relative z-10 container mx-auto px-4 text-center text-white">
           <h1 className="text-4xl md:text-5xl font-display font-bold mb-4">About Us</h1>
           <p className="text-slate-300 max-w-2xl mx-auto text-lg">
             Building trust through excellence in electrical services.

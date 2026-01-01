@@ -60,11 +60,7 @@ export function Footer() {
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-5 w-5 text-primary shrink-0" />
-                <a href="tel:+923001234567" className="hover:text-white transition-colors">+92 300 123 4567</a>
-              </li>
-              <li className="flex items-center gap-3">
-                <Mail className="h-5 w-5 text-primary shrink-0" />
-                <a href="mailto:info@pakelectrician.com" className="hover:text-white transition-colors">info@pakelectrician.com</a>
+                <a href="tel:03054019976" className="hover:text-white transition-colors">03054019976</a>
               </li>
             </ul>
           </div>
