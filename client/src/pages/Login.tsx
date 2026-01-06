@@ -32,12 +32,12 @@ export default function Login() {
             });
           }} className="space-y-4 text-left">
             <div>
-              <label className="block text-sm font-medium mb-1">Username</label>
-              <input name="username" className="w-full p-2 border rounded-md" placeholder="admin" />
+              <label className="block text-sm font-medium mb-1">Username / Email</label>
+              <input name="username" className="w-full p-2 border rounded-md" placeholder="Enter your email" />
             </div>
             <div>
               <label className="block text-sm font-medium mb-1">Password</label>
-              <input name="password" type="password" className="w-full p-2 border rounded-md" placeholder="admin123" />
+              <input name="password" type="password" className="w-full p-2 border rounded-md" placeholder="Enter your password" />
             </div>
             <Button type="submit" size="lg" className="w-full h-12 text-base font-bold shadow-lg shadow-primary/20">
               Login

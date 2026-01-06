@@ -27,14 +27,23 @@ export function setupAuth(app: Express) {
     // Hardcoded Admin User
     const ADMIN_USER = {
         id: 1,
-        username: "admin",
-        password: "admin123", // In a real app, hashed
+        username: "sameerliaqat81@gmail.com",
+        password: "21cfea69ca9a5d0b930b3b7b8af19873:b27bdf82a235a91dafd150f8daba86534f0b331f3c8761c88ee2199cf597b74e418f2e6a2ff87dca3bd330d281f2600229255bd36f1848434282518cfe22bf98",
         isAdmin: true
     };
 
+    async function comparePasswords(supplied: string, hashed: string) {
+        const [salt, key] = hashed.split(":");
+        const b64Key = Buffer.from(key, "hex");
+        const b64Salt = Buffer.from(salt, "hex");
+        const derivedKey = (await scryptAsync(supplied, b64Salt, 64)) as Buffer;
+        return timingSafeEqual(b64Key, derivedKey);
+    }
+
     passport.use(
         new LocalStrategy(async (username, password, done) => {
-            if (username === ADMIN_USER.username && password === ADMIN_USER.password) {
+            const isPasswordValid = await comparePasswords(password, ADMIN_USER.password);
+            if (username === ADMIN_USER.username && isPasswordValid) {
                 return done(null, ADMIN_USER);
             }
             return done(null, false, { message: "Invalid username or password" });

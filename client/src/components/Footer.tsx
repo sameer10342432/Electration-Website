@@ -8,13 +8,18 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center space-x-2">
-              <div className="bg-primary p-2 rounded-lg">
-                <Zap className="h-5 w-5 text-white fill-current" />
+            <div className="flex items-center space-x-3">
+              <div className="bg-gradient-to-br from-primary to-blue-600 p-2.5 rounded-xl shadow-lg border border-white/5">
+                <Zap className="h-5 w-5 text-white fill-white/20" />
               </div>
-              <span className="text-xl font-display font-bold text-white">
-                Pak<span className="text-primary">Electrician</span>
-              </span>
+              <div className="flex flex-col leading-none">
+                <span className="text-xl font-display font-black tracking-tighter text-white">
+                  PAK<span className="text-primary italic">ELECTRIC</span>
+                </span>
+                <span className="text-[8px] uppercase tracking-[0.2em] font-bold text-slate-500 mt-1">
+                  Precision & Power
+                </span>
+              </div>
             </div>
             <p className="text-sm leading-relaxed max-w-xs">
               Providing trusted, safe, and professional electrical services across Pakistan. We are committed to excellence and safety in every job.

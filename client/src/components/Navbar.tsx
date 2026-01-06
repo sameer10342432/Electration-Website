@@ -26,15 +26,35 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-2 group">
-            <div className="bg-primary/10 p-2 rounded-xl group-hover:bg-primary/20 transition-colors">
-              <Zap className="h-6 w-6 text-primary fill-current" />
+          <Link href="/" className="flex items-center space-x-3 group">
+            <div className="relative">
+              <div className="absolute -inset-1 bg-gradient-to-tr from-primary/80 to-blue-400/80 rounded-xl blur-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div className="relative bg-gradient-to-br from-slate-900 to-slate-800 p-2.5 rounded-xl shadow-lg border border-white/10 group-hover:scale-105 transition-transform duration-300">
+                <Zap className="h-6 w-6 text-primary fill-primary/20 animate-pulse" />
+                <div className="absolute -top-1 -right-1">
+                  <span className="relative flex h-3 w-3">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-3 w-3 bg-primary"></span>
+                  </span>
+                </div>
+              </div>
             </div>
             <div className="flex flex-col">
-              <span className="text-xl font-display font-bold text-foreground leading-none">
-                Pak<span className="text-primary">Electrician</span>
-              </span>
-              <span className="text-xs text-muted-foreground font-medium">Expert Services</span>
+              <div className="flex items-center">
+                <span className="text-2xl font-display font-black tracking-tighter text-slate-900 leading-none">
+                  PAK
+                </span>
+                <span className="text-2xl font-display font-black tracking-tighter bg-clip-text text-transparent bg-gradient-to-r from-primary to-blue-500 leading-none">
+                  ELECTRIC
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 mt-0.5">
+                <div className="h-[1px] w-3 bg-primary/40"></div>
+                <span className="text-[10px] uppercase tracking-[0.2em] font-bold text-slate-500">
+                  Precision <span className="text-primary">&</span> Power
+                </span>
+                <div className="h-[1px] w-3 bg-primary/40"></div>
+              </div>
             </div>
           </Link>
 
