@@ -172,7 +172,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-primary/10 rounded-3xl transform rotate-3"></div>
               {/* unsplash: electrician checking fuse box */}
               <img
-                src="/images/services-bg.png"
+                src="/images/service-van.png"
                 alt="Electrician at work"
                 className="relative rounded-2xl shadow-2xl w-full"
               />
@@ -215,6 +215,47 @@ export default function Home() {
                     </div>
                   </div>
                 ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Recent Work Gallery */}
+      <section className="py-20 bg-slate-50">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <span className="text-primary font-bold tracking-wider uppercase text-sm">Portfolio</span>
+            <h2 className="text-4xl font-display font-bold text-foreground mt-2 mb-4">Our Recent Projects</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A glimpse into the quality and precision we bring to every home and business.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            <div className="group relative overflow-hidden rounded-3xl bg-white shadow-lg">
+              <img
+                src="/images/smart-panel.png"
+                alt="Smart Home Panel"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h4 className="text-xl font-bold mb-2">Smart Home Integration</h4>
+                <p className="text-sm text-slate-200">Modernized DB board with smart monitoring and surge protection.</p>
+              </div>
+            </div>
+
+            <div className="group relative overflow-hidden rounded-3xl bg-white shadow-lg">
+              <img
+                src="/images/commercial-lighting.png"
+                alt="Commercial Lighting"
+                className="w-full h-80 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="absolute bottom-0 left-0 p-8 text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                <h4 className="text-xl font-bold mb-2">Corporate Office Setup</h4>
+                <p className="text-sm text-slate-200">Custom designer lighting and full electrical infrastructure for a tech hub.</p>
               </div>
             </div>
           </div>

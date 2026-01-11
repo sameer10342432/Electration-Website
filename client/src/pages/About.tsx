@@ -74,6 +74,25 @@ export default function About() {
               </div>
             </div>
           </section>
+
+          <section className="space-y-8">
+            <div className="text-center">
+              <h2 className="text-3xl font-display font-bold mb-4">Meet Our Experts</h2>
+              <p className="text-muted-foreground">Our team of licensed professionals is ready to solve any electrical challenge.</p>
+            </div>
+            <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+              <img
+                src="/images/team.png"
+                alt="Electrician Expert Team"
+                className="w-full h-auto object-cover max-h-[500px]"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
+              <div className="absolute bottom-8 left-8 right-8 text-white">
+                <p className="text-xl font-bold">50+ Certified Technicians Nationwide</p>
+                <p className="text-slate-200">Continuous training. Proven expertise. Unmatched service.</p>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </Layout>
